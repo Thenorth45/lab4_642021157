@@ -33,66 +33,11 @@ class _HomepageState extends State<Homepage> {
       ),
       body: SingleChildScrollView(
         child: Column(children: [
-          RadioListTile(
-            activeColor: Color.fromARGB(255, 247, 3, 3),
-            title: Text("ก๋วยเตี๋ยว"),
-            subtitle: Text("60 บาท"),
-            value: "Noodle",
-            groupValue: Foodsradio,
-            onChanged: (value) {
-              setState(() {
-                Foodsradio = value!;
-              });
-            },
-          ),
-          RadioListTile(
-            activeColor: Color.fromARGB(255, 227, 3, 247),
-            title: Text("ข้าว"),
-            subtitle: Text("50 บาท"),
-            value: "Rice",
-            groupValue: Foodsradio,
-            onChanged: (value) {
-              setState(() {
-                Foodsradio = value!;
-              });
-            },
-          ),
-          RadioListTile(
-            activeColor: Color.fromARGB(255, 3, 40, 247),
-            title: Text("ผลไม้"),
-            subtitle: Text("10 บาท"),
-            value: "Fruit",
-            groupValue: Foodsradio,
-            onChanged: (value) {
-              setState(() {
-                Foodsradio = value!;
-              });
-            },
-          ),
-          RadioListTile(
-            activeColor: Color.fromARGB(255, 3, 247, 227),
-            title: Text("น้ำ"),
-            subtitle: Text("7 บาท"),
-            value: "Water",
-            groupValue: Foodsradio,
-            onChanged: (value) {
-              setState(() {
-                Foodsradio = value!;
-              });
-            },
-          ),
-          RadioListTile(
-            activeColor: Color.fromARGB(255, 23, 247, 3),
-            title: Text("ขนม"),
-            subtitle: Text("5 บาท"),
-            value: "Snack",
-            groupValue: Foodsradio,
-            onChanged: (value) {
-              setState(() {
-                Foodsradio = value!;
-              });
-            },
-          ),
+          RadioList("ก๋วยเตี๋ยว", "60 บาท"),
+          RadioList("ข้าว", "50 บาท"),
+          RadioList("ผลไม้", "10 บาท"),
+          RadioList("น้ำ", "7 บาท"),
+          RadioList("ขนม", "5 บาท"),
           Divider(),
           CheckboxListTile(
             value: staregg,
@@ -154,12 +99,12 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-  RadioListTile<String> RadioList() {
+  RadioListTile<String> RadioList(String title, String subtitle) {
     return RadioListTile(
       activeColor: Color.fromARGB(255, 247, 3, 3),
-      title: Text("ก๋วยเตี๋ยว"),
-      subtitle: Text("60 บาท"),
-      value: "Noodle",
+      title: Text(title),
+      subtitle: Text(subtitle),
+      value: title,
       groupValue: Foodsradio,
       onChanged: (value) {
         setState(() {
